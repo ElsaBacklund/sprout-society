@@ -1,8 +1,16 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import ContentList from "./pages/ContentList";
+import ContentPage from "./pages/ContentPage";
+
 function App() {
   return (
-    <div>
-      <h1>Sprout Society</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/content" replace />} />
+        <Route path="/content" element={<ContentList />} />
+        <Route path="/content/:id" element={<ContentPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

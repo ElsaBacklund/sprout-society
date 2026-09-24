@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import api from "../services/api";
 
 interface CareInstructions {
@@ -63,31 +64,33 @@ function ContentList() {
         <div>
           {contentPages.map((page) => (
             <article key={page._id}>
-              <img
-                src={page.imageUrl}
-                alt={page.plantName}
-              />
+                <Link to={`/content/${page._id}`}>
+                    <img
+                    src={page.imageUrl}
+                    alt={page.plantName}
+                    />
 
-              <h2>{page.title}</h2>
+                    <h2>{page.title}</h2>
 
-              <p>
-                <strong>Växt:</strong> {page.plantName}
-              </p>
+                    <p>
+                    <strong>Växt:</strong> {page.plantName}
+                    </p>
 
-              <p>
-                <strong>Kategori:</strong> {page.category}
-              </p>
+                    <p>
+                    <strong>Kategori:</strong> {page.category}
+                    </p>
 
-              <p>
-                <strong>Svårighetsgrad:</strong> {page.difficulty}
-              </p>
+                    <p>
+                    <strong>Svårighetsgrad:</strong> {page.difficulty}
+                    </p>
 
-              <p>{page.summary}</p>
+                    <p>{page.summary}</p>
 
-              <p>
-                <strong>Krävd nivå:</strong> {page.requiredLevel}
-              </p>
-            </article>
+                    <p>
+                    <strong>Krävd nivå:</strong> {page.requiredLevel}
+                    </p>
+                </Link>
+                </article>
           ))}
         </div>
       )}
