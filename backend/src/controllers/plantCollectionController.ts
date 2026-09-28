@@ -172,3 +172,90 @@ export const getMyPlants = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Kunde inte hämta växter", error });
   }
 };
+
+// Markera ett spår (watering/sunlight/nutrition) som gjort idag
+export const markDone = async (req: Request, res: Response) => {
+  try {
+    const userId = req.userId!;
+    const plantId = req.params.id;
+    const { track } = req.body as { track: "watering" | "sunlight" | "nutrition" };
+
+    // Grundvalidering: track måste vara ett giltigt värde
+    if (!["watering", "sunlight", "nutrition"].includes(track)) {
+      return res.status(400).json({
+        message: "track måste vara 'watering', 'sunlight' eller 'nutrition'",
+      });
+    }
+
+    // Hitta växten
+    const plant = await UserPlant.findById(plantId);
+    if (!plant) {
+      return res.status(404).json({ message: "Växten hittades inte" });
+    }
+
+    // Verifiera ägarskap
+    if (plant.user.toString() !== userId) {
+      return res.status(403).json({ message: "Du äger inte den här växten" });
+    }
+
+    // Kolla att spåret är upplåst för användarens nivå
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "Användare hittades inte" });
+    }
+    const features = TIER_FEATURES[user.level];
+
+    const trackUnlocked =
+      (track === "watering" && features.wateringUnlocked) ||
+      (track === "sunlight" && features.sunlightUnlocked) ||
+      (track === "nutrition" && features.nutritionUnlocked);
+
+    if (!trackUnlocked) {
+      return res.status(403).json({
+        message: `${track} är låst för din nivå`,
+        upgrade: true,
+      });
+    }
+
+    // Kolla att spåret faktiskt finns på växten (t.ex. Bloomer utan sunlight satt)
+    if (!plant[track]) {
+      return res.status(400).json({
+        message: `Växten har inget schema för ${track}`,
+      });
+    }
+
+    // Uppdatera lastDoneAt till nu och spara
+    plant[track]!.lastDoneAt = new Date();
+    await plant.save();
+
+    res.json(plant);
+  } catch (error) {
+    res.status(500).json({ message: "Kunde inte markera som gjort", error });
+  }
+};
+
+// Ta bort en växt från användarens samling
+export const deletePlant = async (req: Request, res: Response) => {
+  try {
+    const userId = req.userId!;
+    const plantId = req.params.id;
+
+    // Hitta växten
+    const plant = await UserPlant.findById(plantId);
+    if (!plant) {
+      return res.status(404).json({ message: "Växten hittades inte" });
+    }
+
+    // Verifiera ägarskap
+    if (plant.user.toString() !== userId) {
+      return res.status(403).json({ message: "Du äger inte den här växten" });
+    }
+
+    // Radera
+    await plant.deleteOne();
+
+    res.json({ message: "Växten borttagen", deletedId: plantId });
+  } catch (error) {
+    res.status(500).json({ message: "Kunde inte ta bort växt", error });
+  }
+};
