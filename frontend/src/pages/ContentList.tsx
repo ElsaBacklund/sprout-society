@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../services/api";
+import "./ContentList.css";
 
 interface CareInstructions {
   light: string;
@@ -55,46 +56,49 @@ function ContentList() {
   }
 
   return (
-    <div>
-      <h1>Växter</h1>
+  <main className="content-list">
+    <h1>Växter</h1>
 
       {contentPages.length === 0 ? (
         <p>Det finns inget innehåll ännu.</p>
       ) : (
-        <div>
+        <div className="content-grid">
           {contentPages.map((page) => (
-            <article key={page._id}>
+            <article className="content-card" key={page._id}>
                 <Link to={`/content/${page._id}`}>
-                    <img
+                  <img
+                    className="content-card-image"
                     src={page.imageUrl}
                     alt={page.plantName}
-                    />
+                  />
 
+                  <div className="content-card-body">
                     <h2>{page.title}</h2>
 
                     <p>
-                    <strong>Växt:</strong> {page.plantName}
+                      <strong>Växt:</strong> {page.plantName}
                     </p>
 
                     <p>
-                    <strong>Kategori:</strong> {page.category}
+                      <strong>Kategori:</strong> {page.category}
                     </p>
 
                     <p>
-                    <strong>Svårighetsgrad:</strong> {page.difficulty}
+                      <strong>Svårighetsgrad:</strong> {page.difficulty}
                     </p>
 
-                    <p>{page.summary}</p>
+                    <p className="content-card-summary">{page.summary}</p>
 
-                    <p>
-                    <strong>Krävd nivå:</strong> {page.requiredLevel}
+                    <p className="content-card-level">
+                      {page.requiredLevel}
                     </p>
+                  </div>
                 </Link>
                 </article>
           ))}
         </div>
       )}
-    </div>
+    </main>
   );
 }
 
