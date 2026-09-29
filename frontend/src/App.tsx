@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ContentList from "./pages/ContentList";
 import ContentPage from "./pages/ContentPage";
+import AdminContent from "./pages/AdminContent";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         <Route path="/" element={<Navigate to="/content" replace />} />
         <Route path="/content" element={<ContentList />} />
         <Route path="/content/:id" element={<ContentPage />} />
+        <Route path="/admin/content" element={<AdminContent />} />
       </Routes>
     </BrowserRouter>
   );
