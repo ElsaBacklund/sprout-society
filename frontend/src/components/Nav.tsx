@@ -20,22 +20,26 @@ function Nav() {
       </Link>
 
       <div className="site-nav-links">
-        <Link
-          className={location.pathname.startsWith("/content") ? "active" : ""}
-          to="/content"
-        >
-          Växter
-        </Link>
-
-        <Link
-          className={location.pathname.startsWith("/my-plants") ? "active" : ""}
-          to="/my-plants"
-        >
-          Min samling
-        </Link>
-
         {loggedIn ? (
           <>
+            <Link
+              className={
+                location.pathname.startsWith("/content") ? "active" : ""
+              }
+              to="/content"
+            >
+              Växter
+            </Link>
+
+            <Link
+              className={
+                location.pathname.startsWith("/my-plants") ? "active" : ""
+              }
+              to="/my-plants"
+            >
+              Min samling
+            </Link>
+
             {user?.isAdmin && (
               <Link
                 className={
