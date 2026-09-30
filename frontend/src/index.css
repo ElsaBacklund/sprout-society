@@ -91,3 +91,15 @@ select {
     font-size: 1.2rem;
   }
 }
+
+@media (min-width: 1400px) {
+  html {
+    font-size: 19px;
+  }
+}
+
+@media (min-width: 1800px) {
+  html {
+    font-size: 20px;
+  }
+}
