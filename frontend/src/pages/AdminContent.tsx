@@ -236,6 +236,7 @@ useEffect(() => {
       {message && <p className="admin-message">{message}</p>}
       {error && <p className="admin-error">{error}</p>}
 
+    <div className="admin-content-body">
       <section className="admin-form-section">
         <h2>{editingId ? "Redigera växtguide" : "Skapa ny växtguide"}</h2>
 
@@ -427,6 +428,7 @@ useEffect(() => {
           </div>
         )}
       </section>
+      </div>
     </main>
   );
 }

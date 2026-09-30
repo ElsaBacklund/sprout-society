@@ -1,7 +1,14 @@
 .admin-content {
-  max-width: 900px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 40px 24px 60px;
+}
+
+.admin-content-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
 }
 
 .admin-content-header {
@@ -157,9 +164,8 @@
 
 .admin-list-item {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
+  flex-direction: column;
+  gap: 10px;
   padding: 16px;
   background: #eef4eb;
   border: 1px solid #c6d6c1;
@@ -192,5 +198,17 @@
   .admin-list-item {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 900px) {
+  .admin-content-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1600px) {
+  .admin-content {
+    max-width: 1900px;
   }
 }
