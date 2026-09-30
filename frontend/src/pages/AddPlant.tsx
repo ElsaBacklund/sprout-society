@@ -22,6 +22,25 @@ interface PlantsResponse {
   tier: TierInfo;
 }
 
+interface PlantDefaults {
+  watering: number;
+  sunlight: number;
+  nutrition: number;
+}
+
+const PLANT_DEFAULTS: Record<string, PlantDefaults> = {
+  "Monstera deliciosa": { watering: 7, sunlight: 3, nutrition: 14 },
+  "Sansevieria trifasciata": { watering: 10, sunlight: 7, nutrition: 30 },
+  "Epipremnum aureum": { watering: 5, sunlight: 2, nutrition: 14 },
+  "Echeveria elegans": { watering: 14, sunlight: 1, nutrition: 30 },
+};
+
+const FALLBACK_DEFAULTS: PlantDefaults = {
+  watering: 3,
+  sunlight: 2,
+  nutrition: 14,
+};
+
 function AddPlant() {
   const navigate = useNavigate();
 
@@ -111,10 +130,22 @@ function AddPlant() {
         <label>
           Växttyp
           <select
-            value={contentPageId}
-            onChange={(e) => setContentPageId(e.target.value)}
-            required
-          >
+  value={contentPageId}
+  onChange={(e) => {
+    const newId = e.target.value;
+    setContentPageId(newId);
+    
+        const selectedPlant = contentPages.find((p) => p._id === newId);
+        if (selectedPlant) {
+        const defaults =
+        PLANT_DEFAULTS[selectedPlant.plantName] ?? FALLBACK_DEFAULTS;
+        setWateringDays(String(defaults.watering));
+        setSunlightDays(String(defaults.sunlight));
+        setNutritionDays(String(defaults.nutrition));
+        }
+  }}
+  required
+>
             <option value="">-- Välj en växt --</option>
             {contentPages.map((page) => (
               <option key={page._id} value={page._id}>
@@ -134,17 +165,22 @@ function AddPlant() {
           />
         </label>
 
-        <label>
-          💧 Vattna var X:e dag
-          <input
-            type="number"
-            min="1"
-            max="60"
-            value={wateringDays}
-            onChange={(e) => setWateringDays(e.target.value)}
-            required
-          />
-        </label>
+<label>
+  💧 Vattna var X:e dag
+  <input
+    type="number"
+    min="1"
+    max="60"
+    value={wateringDays}
+    onChange={(e) => setWateringDays(e.target.value)}
+    required
+  />
+  {contentPageId && (
+    <span className="input-hint">
+      Vi föreslår ett värde baserat på växten — ändra om du vet bättre 🌿
+    </span>
+  )}
+</label>
 
         {(tier?.level === "plus" || tier?.level === "fullstandigt") && (
           <label>
@@ -156,6 +192,11 @@ function AddPlant() {
               value={sunlightDays}
               onChange={(e) => setSunlightDays(e.target.value)}
             />
+            {contentPageId && (
+              <span className="input-hint">
+                Vi föreslår ett värde baserat på växten — ändra om du vet bättre ☀️
+              </span>
+            )}
           </label>
         )}
 
@@ -169,6 +210,11 @@ function AddPlant() {
               value={nutritionDays}
               onChange={(e) => setNutritionDays(e.target.value)}
             />
+            {contentPageId && (
+              <span className="input-hint">
+                Vi föreslår ett värde baserat på växten — ändra om du vet bättre 🌿
+              </span>
+            )}
           </label>
         )}
 

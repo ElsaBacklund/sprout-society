@@ -114,3 +114,11 @@
 .button-secondary:hover {
   background: #eef3ec;
 }
+
+.input-hint {
+  font-weight: 400;
+  color: #7a8a7e;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 2px;
+}
