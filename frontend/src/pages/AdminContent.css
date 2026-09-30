@@ -1,5 +1,5 @@
 .admin-content {
-  max-width: 1600px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 40px 24px 60px;
 }
@@ -204,11 +204,5 @@
 @media (max-width: 900px) {
   .admin-content-body {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 1600px) {
-  .admin-content {
-    max-width: 1900px;
   }
 }
