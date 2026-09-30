@@ -1,0 +1,196 @@
+.admin-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.admin-content-header {
+  margin-bottom: 32px;
+}
+
+.admin-content-header h1 {
+  margin-bottom: 8px;
+  font-size: 2.8rem;
+}
+
+.admin-content-header p {
+  color: #435548;
+  font-size: 1.1rem;
+}
+
+.admin-form-section,
+.admin-list-section {
+  margin-bottom: 32px;
+  padding: 28px;
+  background: #f8faf6;
+  border: 1px solid #9caf98;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(38, 53, 42, 0.1);
+}
+
+.admin-form-section h2,
+.admin-list-section h2 {
+  margin-bottom: 24px;
+  color: #26352a;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-form label,
+.admin-care-section label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #29402f;
+  font-weight: 600;
+}
+
+.admin-form input,
+.admin-form textarea,
+.admin-form select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #b5c7b0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #26352a;
+  font: inherit;
+}
+
+.admin-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus,
+.admin-form select:focus {
+  outline: 2px solid #789b78;
+  outline-offset: 1px;
+  border-color: #789b78;
+}
+
+.admin-care-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 8px;
+  padding: 20px;
+  background: #eef4eb;
+  border: 1px solid #c6d6c1;
+  border-radius: 14px;
+}
+
+.admin-care-section h3 {
+  margin: 0 0 4px;
+  color: #29402f;
+}
+
+.admin-form-actions,
+.admin-item-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-form button,
+.admin-item-actions button {
+  padding: 11px 18px;
+  border: none;
+  border-radius: 10px;
+  background: #4f7654;
+  color: white;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-form button:hover,
+.admin-item-actions button:hover {
+  background: #3f6245;
+}
+
+.admin-form .cancel-button {
+  background: #d9e3d6;
+  color: #29402f;
+}
+
+.admin-form .cancel-button:hover {
+  background: #cbd8c8;
+}
+
+.admin-item-actions .delete-button {
+  background: #a85c5c;
+}
+
+.admin-item-actions .delete-button:hover {
+  background: #8e4949;
+}
+
+.admin-message {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #dce8d8;
+  color: #315b39;
+  font-weight: 600;
+}
+
+.admin-error {
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #f4dddd;
+  color: #813b3b;
+  font-weight: 600;
+}
+
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  background: #eef4eb;
+  border: 1px solid #c6d6c1;
+  border-radius: 12px;
+}
+
+.admin-list-item h3 {
+  margin: 0 0 4px;
+  color: #29402f;
+}
+
+.admin-list-item p {
+  color: #526456;
+}
+
+@media (max-width: 700px) {
+  .admin-content {
+    padding: 24px 16px 40px;
+  }
+
+  .admin-content-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .admin-form-section,
+  .admin-list-section {
+    padding: 20px;
+  }
+
+  .admin-list-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

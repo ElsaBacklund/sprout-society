@@ -4,6 +4,7 @@ import ContentPage from "./pages/ContentPage";
 import MyPlants from "./pages/MyPlants";
 import AddPlant from "./pages/AddPlant";
 import Navigation from "./components/Navigation";
+import AdminContent from "./pages/AdminContent";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/content/:id" element={<ContentPage />} />
         <Route path="/my-plants" element={<MyPlants />} />
         <Route path="/my-plants/add" element={<AddPlant />} />
+        <Route path="/admin/content" element={<AdminContent />} />
       </Routes>
     </BrowserRouter>
   );
