@@ -3,13 +3,16 @@ import ContentList from "./pages/ContentList";
 import ContentPage from "./pages/ContentPage";
 import MyPlants from "./pages/MyPlants";
 import AddPlant from "./pages/AddPlant";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/Nav";
 import AdminContent from "./pages/AdminContent";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import AccountPage from "./pages/AccountPage";
 
 function App() {
   return (
     <BrowserRouter>
-    <Navigation />
+      <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/content" replace />} />
         <Route path="/content" element={<ContentList />} />
@@ -17,6 +20,9 @@ function App() {
         <Route path="/my-plants" element={<MyPlants />} />
         <Route path="/my-plants/add" element={<AddPlant />} />
         <Route path="/admin/content" element={<AdminContent />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/account" element={<AccountPage />} />
       </Routes>
     </BrowserRouter>
   );
