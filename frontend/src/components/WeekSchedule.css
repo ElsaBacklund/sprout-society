@@ -1,0 +1,104 @@
+.week-schedule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.week-schedule-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 90px;
+  font-size: 0.9rem;
+  color: #35483a;
+}
+
+.week-schedule-icon {
+  font-size: 1.1rem;
+}
+
+.week-schedule-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.schedule-dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+/* grå prick, alla spår ser samma ut */
+.schedule-dot-idle {
+  background: #d8e0d5;
+}
+
+/* Locked: samma grå men mer stark */
+.schedule-dot-locked {
+  background: #d8e0d5;
+  opacity: 0.5;
+}
+
+/* Färger för varje spår när prick är aktiva */
+.week-schedule-blue .schedule-dot-active {
+  background: #4a9eff;
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.25);
+  cursor: pointer;
+}
+
+.week-schedule-yellow .schedule-dot-active {
+  background: #f5b800;
+  box-shadow: 0 0 0 3px rgba(245, 184, 0, 0.25);
+  cursor: pointer;
+}
+
+.week-schedule-orange .schedule-dot-active {
+  background: #e07b3a;
+  box-shadow: 0 0 0 3px rgba(224, 123, 58, 0.25);
+  cursor: pointer;
+}
+
+/* samma färg men mer bleka */
+.week-schedule-blue .schedule-dot-upcoming {
+  background: rgba(74, 158, 255, 0.35);
+}
+
+.week-schedule-yellow .schedule-dot-upcoming {
+  background: rgba(245, 184, 0, 0.4);
+}
+
+.week-schedule-orange .schedule-dot-upcoming {
+  background: rgba(224, 123, 58, 0.4);
+}
+
+/* Hover-effekt på aktiva prickar (bara de klickbara) */
+.schedule-dot-active:hover {
+  transform: scale(1.15);
+}
+
+/* Reset button-styling så våra prickar inte ärver button-utseende */
+.schedule-dot {
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: default;
+}
+
+/* Uppgraderings-meddelande under locked spår */
+.week-schedule-upgrade {
+  margin-left: 12px;
+  font-size: 0.85rem;
+  color: #7a8a7e;
+  font-style: italic;
+}
+
+/* overlay-känsla på hela raden när den är locked */
+.week-schedule.is-locked {
+  position: relative;
+}
+
+.week-schedule.is-locked .week-schedule-label {
+  color: #8a9a8e;
+}
