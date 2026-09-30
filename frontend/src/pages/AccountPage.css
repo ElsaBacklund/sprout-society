@@ -1,0 +1,178 @@
+.account-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.account-page h1 {
+  margin-bottom: 4px;
+  font-size: 2.4rem;
+  color: #203526;
+}
+
+.account-subtitle {
+  margin: 0 0 32px !important;
+  color: #526456;
+}
+
+.account-section {
+  margin-bottom: 40px;
+}
+
+.account-section h2 {
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+  color: #203526;
+}
+
+.account-info-card {
+  background: #f8faf6;
+  border: 1px solid #9caf98;
+  border-radius: 16px;
+  padding: 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.account-info-item strong {
+  display: block;
+  font-size: 0.85rem;
+  color: #526456;
+  margin-bottom: 2px;
+}
+
+.account-info-item span {
+  font-size: 1.1rem;
+  color: #26352a;
+  font-weight: 600;
+}
+
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.level-card {
+  background: #f8faf6;
+  border: 2px solid #9caf98;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.level-card.current {
+  border-color: #315b39;
+  background: #e7f0e3;
+}
+
+.level-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #203526;
+}
+
+.level-price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #315b39;
+}
+
+.level-current-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #315b39;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.level-select-button {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #315b39;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.level-select-button:hover:not(:disabled) {
+  background: #26472d;
+}
+
+.level-select-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.payment-message {
+  margin: 16px 0 0 !important;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.payment-message.success {
+  background: #dce8d8;
+  border: 1px solid #9caf98;
+  color: #203526;
+}
+
+.payment-message.error {
+  background: #f6dede;
+  border: 1px solid #c98f8f;
+  color: #7a2626;
+}
+
+.receipts-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f8faf6;
+  border: 1px solid #9caf98;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.receipts-table th,
+.receipts-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid #dce8d8;
+  color: #35483a;
+}
+
+.receipts-table th {
+  background: #e7f0e3;
+  color: #203526;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.receipts-table tr:last-child td {
+  border-bottom: none;
+}
+
+.logout-button {
+  margin-top: 8px;
+  padding: 10px 20px;
+  border: 1px solid #9caf98;
+  border-radius: 8px;
+  background: transparent;
+  color: #35483a;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: #dce8d8;
+}
