@@ -4,6 +4,7 @@ export interface StoredUser {
   email: string;
   level: "grundpaket" | "plus" | "fullstandigt";
   levelName: string;
+  isAdmin: boolean;
 }
 
 const TOKEN_KEY = "token";

@@ -36,6 +36,7 @@ export async function register(req: Request, res: Response) {
         email: user.email,
         level: user.level,
         levelName: LEVEL_DISPLAY_NAME[user.level],
+        isAdmin: user.isAdmin,
       },
     });
   } catch (error) {
@@ -71,6 +72,7 @@ export async function login(req: Request, res: Response) {
         email: user.email,
         level: user.level,
         levelName: LEVEL_DISPLAY_NAME[user.level],
+        isAdmin: user.isAdmin,
       },
     });
   } catch (error) {
