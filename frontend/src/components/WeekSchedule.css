@@ -92,6 +92,12 @@
   font-size: 0.85rem;
   color: #7a8a7e;
   font-style: italic;
+  flex: 1;
+  min-width: 0;
+}
+
+.week-schedule {
+  flex-wrap: wrap;
 }
 
 /* overlay-känsla på hela raden när den är locked */
