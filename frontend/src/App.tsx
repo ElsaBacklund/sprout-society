@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
 import ContentList from "./pages/ContentList";
 import ContentPage from "./pages/ContentPage";
 import MyPlants from "./pages/MyPlants";
@@ -14,7 +15,7 @@ function App() {
     <BrowserRouter>
     <Nav />
       <Routes>
-        <Route path="/" element={<Navigate to="/content" replace />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/content" element={<ContentList />} />
         <Route path="/content/:id" element={<ContentPage />} />
         <Route path="/my-plants" element={<MyPlants />} />

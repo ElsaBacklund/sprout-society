@@ -1,0 +1,105 @@
+.home-page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+}
+
+.home-hero {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.home-hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+
+.home-tagline {
+  max-width: 560px;
+  margin: 0 auto 24px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.home-cta {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.home-cta-primary,
+.home-cta-secondary {
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.home-cta-primary {
+  background-color: #3b7a3b;
+  color: #fff;
+}
+
+.home-cta-secondary {
+  background-color: #eef4ea;
+  color: #3b7a3b;
+}
+
+.home-greeting {
+  color: #3b7a3b;
+  font-weight: 600;
+}
+
+.home-section {
+  margin-bottom: 48px;
+}
+
+.home-section h2 {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.home-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.home-feature-card {
+  background-color: #f7faf5;
+  border: 1px solid #e0e8dc;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.home-feature-card h3 {
+  margin-bottom: 8px;
+  color: #2f5e2f;
+}
+
+.home-level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.home-level-card {
+  text-align: center;
+  border: 1px solid #e0e8dc;
+  border-radius: 8px;
+  padding: 20px 16px;
+}
+
+.home-level-price {
+  display: block;
+  font-weight: 600;
+  color: #3b7a3b;
+  margin: 8px 0;
+}
+
+.home-level-note {
+  text-align: center;
+  margin-top: 16px;
+  color: #777;
+}
