@@ -3,16 +3,16 @@ import ContentList from "./pages/ContentList";
 import ContentPage from "./pages/ContentPage";
 import MyPlants from "./pages/MyPlants";
 import AddPlant from "./pages/AddPlant";
-import Navigation from "./components/Nav";
 import AdminContent from "./pages/AdminContent";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AccountPage from "./pages/AccountPage";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navigation />
+    <Nav />
       <Routes>
         <Route path="/" element={<Navigate to="/content" replace />} />
         <Route path="/content" element={<ContentList />} />
