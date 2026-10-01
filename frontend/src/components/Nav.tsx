@@ -15,7 +15,7 @@ function Nav() {
 
   return (
     <nav className="site-nav">
-      <Link className="site-nav-brand" to="/content">
+      <Link className="site-nav-brand" to="/">
         🌱 Sprout Society
       </Link>
 
